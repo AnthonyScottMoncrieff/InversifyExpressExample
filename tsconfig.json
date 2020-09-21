@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["es6", "dom"],
+        "types": ["reflect-metadata", "chai", "mocha", "typemoq", "node"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "outDir": "lib/src/",
+        "useDefineForClassFields": true
+    }
+}
