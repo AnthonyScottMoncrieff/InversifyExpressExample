@@ -1,5 +1,5 @@
 import * as express from "express";
-import { controller, httpGet, queryParam, BaseHttpController, requestParam, HttpResponseMessage, StringContent } from "inversify-express-utils";
+import { controller, httpGet, queryParam, BaseHttpController, requestParam, HttpResponseMessage, StringContent, interfaces } from "inversify-express-utils";
 import { inject } from "inversify";
 import { Symbols } from "../../InversifyExpressExample.Models/Symbols";
 import { ITemperatureManager } from "../../InversifyExpressExample.Domain/Interfaces/ITemperatureManager";
@@ -24,11 +24,10 @@ export class TestController extends BaseHttpController {
     }
 
     @httpGet("/FarenheitToCelcius/:farenheit")
-    public FarenheitToCelcius(@requestParam("farenheit") farenheit: number): HttpResponseMessage {
+    public FarenheitToCelcius(@requestParam("farenheit") farenheit: number): interfaces.IHttpActionResult {
         let convertedValue = this._temperatureManager.FarenheitToCelcius(farenheit);
         const response = new HttpResponseMessage(200);
         response.content = new StringContent(convertedValue.toString());
-        return response;
-
+        return this.ok(convertedValue.toString());
     }
 }
