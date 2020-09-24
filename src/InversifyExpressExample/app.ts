@@ -6,20 +6,24 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import "./Controllers/TemperatureController";
 import "./Controllers/TvShowController";
 import { IOC } from './IocContainer/IOC';
+try {
+    // set up bindings
+    let ioc = new IOC();
+    let container = ioc.GetInstance();
 
-// set up bindings
-let ioc = new IOC();
-let container = ioc.GetInstance();
+    // create server
+    let server = new InversifyExpressServer(container);
+    server.setConfig((app) => {
+        // add body parser
+        app.use(bodyParser.urlencoded({
+            extended: true
+        }));
+        app.use(bodyParser.json());
+    });
 
-// create server
-let server = new InversifyExpressServer(container);
-server.setConfig((app) => {
-  // add body parser
-  app.use(bodyParser.urlencoded({
-    extended: true
-  }));
-  app.use(bodyParser.json());
-});
-
-let app = server.build();
-app.listen(3000);
+    let app = server.build();
+    app.listen(4000);
+}
+catch (e) {
+    console.log(e);
+}
