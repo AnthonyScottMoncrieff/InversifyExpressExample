@@ -4,7 +4,9 @@
   "description": "",
   "main": "lib\\src\\InversifyExpressExample\\app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-all": "mocha --exit --timeout 999999 --colors ./lib/src/Tests/**/*.js",
+    "test-unit": "mocha --exit --timeout 999999 --colors ./lib/src/Tests/InversifyExpressExample.Tests.Unit/**/*.js",
+    "test-integration": "mocha --exit --timeout 999999 --colors ./lib/src/Tests/InversifyExpressExample.Tests.Integration/**/*.js",
     "start": "node lib\\src\\InversifyExpressExample\\app.js --inspect" 
   },
   "author": "",
