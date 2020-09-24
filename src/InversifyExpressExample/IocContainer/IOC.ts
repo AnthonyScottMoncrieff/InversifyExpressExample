@@ -43,6 +43,6 @@ export class IOC {
             serverUrl: appSettings.Exceptionless.ServerUrl,
             submissionBatchSize: 100
         });
-        container.bind<ILogger>(Symbols.Logger).toConstantValue(new Logger(client));
+        container.bind<ILogger>(Symbols.Logger).toDynamicValue(() => new Logger(client)).inRequestScope();
     }
 }
