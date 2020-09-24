@@ -26,8 +26,6 @@ export class TestController extends BaseHttpController {
     @httpGet("/FarenheitToCelcius/:farenheit")
     public FarenheitToCelcius(@requestParam("farenheit") farenheit: number): interfaces.IHttpActionResult {
         let convertedValue = this._temperatureManager.FarenheitToCelcius(farenheit);
-        const response = new HttpResponseMessage(200);
-        response.content = new StringContent(convertedValue.toString());
-        return this.ok(convertedValue.toString());
+        return this.ok(convertedValue);
     }
 }

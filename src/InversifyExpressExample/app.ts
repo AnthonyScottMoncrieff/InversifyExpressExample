@@ -3,7 +3,8 @@ import 'reflect-metadata'
 import { InversifyExpressServer } from 'inversify-express-utils';
 
 // declare metadata by @controller annotation
-import "./controllers/TemperatureController";
+import "./Controllers/TemperatureController";
+import "./Controllers/TvShowController";
 import { IOC } from './IocContainer/IOC';
 
 // set up bindings
