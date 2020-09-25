@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import { HttpClient } from "../../InversifyExpressExample.Repositories/Client/HttpClient"
+import "reflect-metadata";
 
 describe('HttpClient Tests', () => {
     it('Get should get data', async () => {
