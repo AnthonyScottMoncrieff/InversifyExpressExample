@@ -1,6 +1,6 @@
 import { IMock, It, Mock, Times } from "typemoq";
 import { IAppSettings } from "../../InversifyExpressExample.Domain/Config/Interfaces/IAppSettings";
-import { toPromiseResponse } from "../../InversifyExpressExample.Domain/Utilities/PromiseUtilities";
+import { toPromiseResponse } from "../InversifyExpressExample.Tests.Utilities/PromiseUtilities";
 import { TvShow } from "../../InversifyExpressExample.Models/TvShow";
 import { IHttpClient } from "../../InversifyExpressExample.Repositories/Client/Interfaces/IHttpClient";
 import { ITvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/Interfaces/ITvShowMapper";
