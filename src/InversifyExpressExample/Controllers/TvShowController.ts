@@ -15,7 +15,7 @@ export class TvShowController extends BaseHttpController {
     }
 
     @httpGet("/:name")
-    public async CelciusToFarenheit(@requestParam("name") name: string): Promise<interfaces.IHttpActionResult> {
+    public async GetShow(@requestParam("name") name: string): Promise<interfaces.IHttpActionResult> {
         let show = await this._tvShowRepository.GetShowByName(name);
         return this.ok(show);
     }
