@@ -1,7 +1,4 @@
-import * as express from "express";
-import { controller, httpGet, queryParam, BaseHttpController, requestParam, interfaces } from "inversify-express-utils";
-import { inject } from "inversify";
-import { Symbols } from "../../InversifyExpressExample.Models/Symbols";
+import { controller, httpGet, BaseHttpController, requestParam, interfaces } from "inversify-express-utils";
 
 @controller("/users", )
 export class UserController extends BaseHttpController {

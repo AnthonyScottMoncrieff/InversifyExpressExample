@@ -1,4 +1,3 @@
-import * as express from "express";
 import { controller, httpGet, queryParam, BaseHttpController, requestParam, interfaces } from "inversify-express-utils";
 import { inject } from "inversify";
 import { Symbols } from "../../InversifyExpressExample.Models/Symbols";
