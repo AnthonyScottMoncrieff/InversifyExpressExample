@@ -17,6 +17,7 @@ export class TvShowController extends BaseHttpController {
     @httpGet("/:name")
     public async GetShow(@requestParam("name") name: string): Promise<interfaces.IHttpActionResult> {
         let show = await this._tvShowRepository.GetShowByName(name);
+        let headers = this.httpContext.request.headers;
         return this.ok(show);
     }
 }
