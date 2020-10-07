@@ -24,6 +24,8 @@ Press ctrl+shit+b and select tsc: watch
 "mochaExplorer.files": "src/Tests/**/*.ts",
 "mochaExplorer.require": "ts-node/register",
 "workbench.tree.indent": 17,
-"workbench.list.horizontalScrolling": true
+"workbench.list.horizontalScrolling": true,
+"debug.javascript.autoAttachFilter": "smart",
+"debug.node.autoAttach": "on"
 ```
 
