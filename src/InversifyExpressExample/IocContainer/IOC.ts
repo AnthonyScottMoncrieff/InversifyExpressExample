@@ -15,6 +15,7 @@ import { IAppSettings } from "../../InversifyExpressExample.Domain/Config/Interf
 import { AppSettings } from "../../InversifyExpressExample.Domain/Config/AppSettings";
 import { ITvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/Interfaces/ITvShowMapper";
 import { TvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/TvShowMapper";
+import { AuthMiddleware } from "../../InversifyExpressExample.Domain/Auth/AuthMiddleware";
 
 
 export class IOC {
@@ -30,6 +31,7 @@ export class IOC {
         container.bind<IHttpClient>(Symbols.HttpClient).to(HttpClient);
         container.bind<ITVShowRepository>(Symbols.TVShowRepository).to(TVShowRepository);
         container.bind<ITvShowMapper>(Symbols.TvShowMapper).to(TvShowMapper);
+        container.bind<AuthMiddleware>(Symbols.AuthMiddleware).to(AuthMiddleware);
 
         this.ConfigureExceptionless(container);
         

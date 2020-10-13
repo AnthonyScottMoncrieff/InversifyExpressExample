@@ -12,7 +12,7 @@ export class AuthProvider implements interfaces.AuthProvider {
         next: express.NextFunction
     ): Promise<interfaces.Principal> {
         const token = req.headers["x-auth-token"];
-        const principal = new Principal({isAuth:token !== undefined});
+        const principal = new Principal({isAuth: token !== undefined});
         return principal;
     }
 

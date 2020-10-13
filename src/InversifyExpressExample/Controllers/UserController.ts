@@ -1,17 +1,12 @@
 import { controller, httpGet, BaseHttpController, requestParam, interfaces } from "inversify-express-utils";
+import { Symbols } from "../../InversifyExpressExample.Models/Symbols";
 
-@controller("/users", )
+@controller("/users",)
 export class UserController extends BaseHttpController {
 
-    @httpGet("/:Id")
+    @httpGet("/:Id", Symbols.AuthMiddleware)
     public async GetShow(@requestParam("Id") Id: string): Promise<interfaces.IHttpActionResult> {
-        let isAuthenticated = await this.httpContext.user.isAuthenticated();
-        if (isAuthenticated) {
-            let user = {Id, Name: 'Tester'};
-            return this.ok(user);
-        } else {
-            return this.badRequest("No");
-        }
-        
+        let user = { Id, Name: 'Tester' };
+        return this.ok(user);
     }
 }
