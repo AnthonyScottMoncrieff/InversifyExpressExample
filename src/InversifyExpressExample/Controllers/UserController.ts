@@ -22,7 +22,7 @@ export class UserController extends BaseHttpController {
 
     @httpPost("/", Symbols.AuthMiddleware)
     public async SaveUser(@requestBody() user: User): Promise<interfaces.IHttpActionResult>{
-        await this._userRepository.AddUserAsync(user);
+        var response = await this._userRepository.AddUserAsync(user);
         return this.ok({"Response": `User with name ${user.Name} saved`});
     }
 }
