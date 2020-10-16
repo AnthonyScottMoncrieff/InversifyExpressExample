@@ -7,4 +7,5 @@ export abstract class Symbols {
     public static TvShowMapper: symbol = Symbol.for('TvShowMapper');
     public static AuthMiddleware: symbol = Symbol.for('AuthMiddleware');
     public static Connection: symbol = Symbol.for('Connection');
+    public static Client: symbol = Symbol.for('Client');
 }

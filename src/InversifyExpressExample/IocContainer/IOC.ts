@@ -18,6 +18,8 @@ import { TvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers
 import { AuthMiddleware } from "../../InversifyExpressExample.Domain/Auth/AuthMiddleware";
 import { Connection } from "../../InversifyExpressExample.Data/Connection";
 import { IConnection } from "../../InversifyExpressExample.Data/Interfaces/IConnection";
+import { Client } from "../../InversifyExpressExample.Data/Client";
+import { IClient } from "../../InversifyExpressExample.Data/Interfaces/IClient";
 
 
 export class IOC {
@@ -35,6 +37,7 @@ export class IOC {
         container.bind<ITvShowMapper>(Symbols.TvShowMapper).to(TvShowMapper);
         container.bind<AuthMiddleware>(Symbols.AuthMiddleware).to(AuthMiddleware);
         container.bind<IConnection>(Symbols.Connection).to(Connection).inSingletonScope();
+        container.bind<IClient>(Symbols.Client).to(Client)
 
         this.ConfigureExceptionless(container);
         
