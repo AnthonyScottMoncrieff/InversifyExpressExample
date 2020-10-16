@@ -14,10 +14,16 @@ export class UserController extends BaseHttpController {
         this._userRepository = userRepository;
     }
 
-    @httpGet("/:Id", Symbols.AuthMiddleware)
-    public async GetUser(@requestParam("Id") Id: number): Promise<interfaces.IHttpActionResult> {
-        let user = { Name: 'Tester', Age: 12 } as User;
+    @httpGet("/getuser/:Id", Symbols.AuthMiddleware)
+    public async GetUser(@requestParam("Id") id: string): Promise<interfaces.IHttpActionResult> {
+        let user = await this._userRepository.GetUserAsync(id);
         return this.ok(user);
+    }
+
+    @httpGet("/getall", Symbols.AuthMiddleware)
+    public async GetAll(): Promise<interfaces.IHttpActionResult> {
+        let users = await this._userRepository.GetUsersAsync();
+        return this.ok(users);
     }
 
     @httpPost("/", Symbols.AuthMiddleware)
