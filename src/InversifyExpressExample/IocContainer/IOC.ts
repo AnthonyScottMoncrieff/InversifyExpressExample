@@ -20,6 +20,8 @@ import { DbConnection } from "../../InversifyExpressExample.Data/DbConnection";
 import { IDbConnection } from "../../InversifyExpressExample.Data/Interfaces/IDbConnection";
 import { DbClient } from "../../InversifyExpressExample.Data/DbClient";
 import { IDbClient } from "../../InversifyExpressExample.Data/Interfaces/IDbClient";
+import { IUserRepository } from "../../InversifyExpressExample.Repositories/Interfaces/IUserRepository";
+import { UserRepository } from "../../InversifyExpressExample.Repositories/UserRepository";
 
 
 export class IOC {
@@ -37,7 +39,8 @@ export class IOC {
         container.bind<ITvShowMapper>(Symbols.TvShowMapper).to(TvShowMapper);
         container.bind<AuthMiddleware>(Symbols.AuthMiddleware).to(AuthMiddleware);
         container.bind<IDbConnection>(Symbols.DbConnection).to(DbConnection).inSingletonScope();
-        container.bind<IDbClient>(Symbols.DbClient).to(DbClient)
+        container.bind<IDbClient>(Symbols.DbClient).to(DbClient);
+        container.bind<IUserRepository>(Symbols.UserRepository).to(UserRepository);
 
         this.ConfigureExceptionless(container);
         
