@@ -25,8 +25,16 @@ export class DbClient implements IDbClient {
         return first;
     }
 
-    public async Insert<T extends {_id:any}>(collection: string, model: T): Promise<T> {
-        let insert:InsertOneWriteOpResult<T> = await this._db.collection(collection).insertOne(model);
+    public async Insert<T extends { _id: any }>(collection: string, model: T): Promise<T> {
+        let insert: InsertOneWriteOpResult<T> = await this._db.collection(collection).insertOne(model);
         return insert.ops[0];
-      }
+    }
+
+    public async Update<T>(collection: string, objectId: string, model: T): Promise<void> {
+        await this._db.collection(collection).updateOne({ _id: new ObjectID(objectId) }, { $set: model });
+    }
+
+    public async Remove(collection: string, objectId: string): Promise<void> {
+        await this._db.collection(collection).deleteOne({ _id: new ObjectID(objectId) });
+    }
 }
