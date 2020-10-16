@@ -6,6 +6,8 @@ import { Principal } from "./Principal";
 @injectable()
 export class AuthProvider implements interfaces.AuthProvider {
 
+    //Typically you would inject an AuthService into here to determine whether a user is authorized
+
     public async getUser(
         req: express.Request,
         res: express.Response,
