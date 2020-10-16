@@ -10,6 +10,7 @@ export class Connection implements IConnection {
     private _appSettings:AppSettings;
     private _isConnected: boolean = false;
     private _db: Db;
+    private readonly _dbName: string = "testDb";
 
     constructor(@inject(Symbols.AppSettings) appSettings: AppSettings){
         this._appSettings = appSettings;
@@ -28,6 +29,7 @@ export class Connection implements IConnection {
     private Connect(result: (error, db: Db) => void): void {
         MongoClient.connect(this._appSettings.ConnectionString, (err, client) => {
             this._isConnected = true;
+            this._db = client.db(this._dbName);
             return result(err, this._db);
         });
     }
