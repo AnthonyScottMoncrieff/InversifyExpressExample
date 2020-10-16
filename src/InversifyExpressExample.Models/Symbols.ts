@@ -6,6 +6,6 @@ export abstract class Symbols {
     public static TVShowRepository: symbol = Symbol.for('TVShowRepository');
     public static TvShowMapper: symbol = Symbol.for('TvShowMapper');
     public static AuthMiddleware: symbol = Symbol.for('AuthMiddleware');
-    public static Connection: symbol = Symbol.for('Connection');
-    public static Client: symbol = Symbol.for('Client');
+    public static DbConnection: symbol = Symbol.for('DbConnection');
+    public static DbClient: symbol = Symbol.for('DbClient');
 }

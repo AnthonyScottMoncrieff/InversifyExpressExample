@@ -2,10 +2,10 @@ import { inject, injectable } from 'inversify';
 import { Db, MongoClient } from 'mongodb';
 import { AppSettings } from '../InversifyExpressExample.Domain/Config/AppSettings';
 import { Symbols } from '../InversifyExpressExample.Models/Symbols';
-import { IConnection } from './Interfaces/IConnection';
+import { IDbConnection } from './Interfaces/IDbConnection';
 
 @injectable()
-export class Connection implements IConnection {
+export class DbConnection implements IDbConnection {
 
     private _appSettings:AppSettings;
     private _isConnected: boolean = false;

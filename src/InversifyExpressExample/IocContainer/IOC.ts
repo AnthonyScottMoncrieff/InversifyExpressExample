@@ -16,10 +16,10 @@ import { AppSettings } from "../../InversifyExpressExample.Domain/Config/AppSett
 import { ITvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/Interfaces/ITvShowMapper";
 import { TvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/TvShowMapper";
 import { AuthMiddleware } from "../../InversifyExpressExample.Domain/Auth/AuthMiddleware";
-import { Connection } from "../../InversifyExpressExample.Data/Connection";
-import { IConnection } from "../../InversifyExpressExample.Data/Interfaces/IConnection";
-import { Client } from "../../InversifyExpressExample.Data/Client";
-import { IClient } from "../../InversifyExpressExample.Data/Interfaces/IClient";
+import { DbConnection } from "../../InversifyExpressExample.Data/DbConnection";
+import { IDbConnection } from "../../InversifyExpressExample.Data/Interfaces/IDbConnection";
+import { DbClient } from "../../InversifyExpressExample.Data/DbClient";
+import { IDbClient } from "../../InversifyExpressExample.Data/Interfaces/IDbClient";
 
 
 export class IOC {
@@ -36,8 +36,8 @@ export class IOC {
         container.bind<ITVShowRepository>(Symbols.TVShowRepository).to(TVShowRepository);
         container.bind<ITvShowMapper>(Symbols.TvShowMapper).to(TvShowMapper);
         container.bind<AuthMiddleware>(Symbols.AuthMiddleware).to(AuthMiddleware);
-        container.bind<IConnection>(Symbols.Connection).to(Connection).inSingletonScope();
-        container.bind<IClient>(Symbols.Client).to(Client)
+        container.bind<IDbConnection>(Symbols.DbConnection).to(DbConnection).inSingletonScope();
+        container.bind<IDbClient>(Symbols.DbClient).to(DbClient)
 
         this.ConfigureExceptionless(container);
         

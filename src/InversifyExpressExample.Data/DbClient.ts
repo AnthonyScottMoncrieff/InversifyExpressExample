@@ -1,14 +1,14 @@
 import { Db, InsertOneWriteOpResult, ObjectID } from 'mongodb';
 import { inject, injectable } from 'inversify';
-import { Connection } from './connection';
+import { DbConnection } from './DbConnection';
 import { Symbols } from '../InversifyExpressExample.Models/Symbols';
-import { IClient } from './Interfaces/IClient';
+import { IDbClient } from './Interfaces/IDbClient';
 
 @injectable()
-export class Client implements IClient {
+export class DbClient implements IDbClient {
     private _db: Db;
 
-    constructor(@inject(Symbols.Connection) mongoConnection: Connection) {
+    constructor(@inject(Symbols.DbConnection) mongoConnection: DbConnection) {
         mongoConnection.getConnection((connection) => {
             this._db = connection;
         });
