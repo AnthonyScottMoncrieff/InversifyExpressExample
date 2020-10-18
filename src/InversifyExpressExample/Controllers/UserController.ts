@@ -31,4 +31,10 @@ export class UserController extends BaseHttpController {
         var response = await this._userRepository.AddUserAsync(user);
         return this.ok({"Response": `User with name ${user.Name} saved`});
     }
+
+    @httpPost("/updateuser/:Id", Symbols.AuthMiddleware)
+    public async UpdateUser(@requestBody() user: User, @requestParam("Id") id: string): Promise<interfaces.IHttpActionResult>{
+        await this._userRepository.UpdateUserAsync(id, user);
+        return this.ok({"Response": `User with name ${user.Name} updated`});
+    }
 }
