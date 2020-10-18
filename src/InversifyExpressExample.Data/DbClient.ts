@@ -20,9 +20,8 @@ export class DbClient implements IDbClient {
     }
 
     public async FindOneByIdAsync<T extends {_id:string}>(collection: string, objectId: string): Promise<T> {
-        let find = await this._db.collection(collection).find({ _id: new ObjectID(objectId) }).limit(1).toArray();
-        let first : T = find[0];
-        return first;
+        let find = await this._db.collection(collection).find({ _id: new ObjectID(objectId) }).next();
+        return <T>find;
     }
 
     public async InsertAsync<T extends {_id:string}>(collection: string, model: T): Promise<T> {
