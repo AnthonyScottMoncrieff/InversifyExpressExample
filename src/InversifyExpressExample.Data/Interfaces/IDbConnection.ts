@@ -1,3 +1,3 @@
 export interface IDbConnection{
-    getConnection(result: (connection) => void): void;
+    GetConnection(result: (connection) => void): void;
 }

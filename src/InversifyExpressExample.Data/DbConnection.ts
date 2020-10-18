@@ -16,7 +16,7 @@ export class DbConnection implements IDbConnection {
         this._appSettings = appSettings;
     }
 
-    public getConnection(result: (connection) => void): void {
+    public GetConnection(result: (connection) => void): void {
         if (this._isConnected) {
             return result(this._db);
         } else {
