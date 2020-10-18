@@ -14,24 +14,24 @@ export class DbClient implements IDbClient {
         });
     }
 
-    public async FindAsync<T>(collection: string, filter: Object): Promise<T[]> {
+    public async FindAsync<T extends {_id?:string}>(collection: string, filter: Object): Promise<T[]> {
         let find = await this._db.collection(collection).find(filter).toArray();
         let idParsedFind: T[] = find.map(doc => { return {...doc, '_id': doc._id.toString() }})
         return idParsedFind;
     }
 
-    public async FindOneByIdAsync<T>(collection: string, objectId: string): Promise<T> {
+    public async FindOneByIdAsync<T extends {_id?:string}>(collection: string, objectId: string): Promise<T> {
         let find = await this._db.collection(collection).find({ _id: new ObjectID(objectId) }).limit(1).toArray();
         let first : T = find.map(doc => { return {...doc, '_id': doc._id.toString() }})[0];
         return first;
     }
 
-    public async InsertAsync<T>(collection: string, model: T): Promise<T> {
+    public async InsertAsync<T extends {_id?:string}>(collection: string, model: T): Promise<T> {
         let insert = await this._db.collection(collection).insertOne(model);
         return <T>insert.ops.map(doc => { return {...doc, '_id': doc._id.toString() }})[0];
     }
 
-    public async UpdateAsync<T>(collection: string, objectId: string, model: T): Promise<void> {
+    public async UpdateAsync<T extends {_id?:string}>(collection: string, objectId: string, model: T): Promise<void> {
         await this._db.collection(collection).updateOne({ _id: new ObjectID(objectId) }, { $set: model });
     }
 
