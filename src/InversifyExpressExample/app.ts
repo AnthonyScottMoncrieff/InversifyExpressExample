@@ -1,5 +1,5 @@
 import * as bodyParser from 'body-parser';
-import 'reflect-metadata'
+import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
 
 // declare metadata by @controller annotation
