@@ -22,6 +22,8 @@ import { DbClient } from "../../InversifyExpressExample.Data/DbClient";
 import { IDbClient } from "../../InversifyExpressExample.Data/Interfaces/IDbClient";
 import { IUserRepository } from "../../InversifyExpressExample.Repositories/Interfaces/IUserRepository";
 import { UserRepository } from "../../InversifyExpressExample.Repositories/UserRepository";
+import { Calendar } from "../../InversifyExpressExample.Domain/Calendar";
+import { ICalendar } from "../../InversifyExpressExample.Domain/Interfaces/ICalendar";
 
 
 export class IOC {
@@ -41,6 +43,7 @@ export class IOC {
         container.bind<IDbConnection>(Symbols.DbConnection).to(DbConnection).inSingletonScope();
         container.bind<IDbClient>(Symbols.DbClient).to(DbClient);
         container.bind<IUserRepository>(Symbols.UserRepository).to(UserRepository);
+        container.bind<ICalendar>(Symbols.Calendar).to(Calendar);
 
         this.ConfigureExceptionless(container);
         

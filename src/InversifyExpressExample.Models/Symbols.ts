@@ -9,4 +9,5 @@ export abstract class Symbols {
     public static DbConnection: symbol = Symbol.for('DbConnection');
     public static DbClient: symbol = Symbol.for('DbClient');
     public static UserRepository: symbol = Symbol.for('UserRepository');
+    public static Calendar: symbol = Symbol.for('Calendar');
 }
