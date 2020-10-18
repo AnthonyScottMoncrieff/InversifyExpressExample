@@ -15,7 +15,7 @@ try {
     let ioc = new IOC();
     let container = ioc.GetInstance();
 
-    // create server
+    // wait for mongo connection then create server
     container.get<IDbConnection>(Symbols.DbConnection).GetConnection(() => {
         let server = new InversifyExpressServer(container, null, null, null, AuthProvider);
         server.setConfig((app) => {
