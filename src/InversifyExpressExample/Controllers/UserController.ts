@@ -1,5 +1,5 @@
 import { inject } from "inversify";
-import { controller, httpGet, BaseHttpController, requestParam, interfaces, httpPost, requestBody } from "inversify-express-utils";
+import { controller, httpGet, BaseHttpController, requestParam, interfaces, httpPost, requestBody, httpPut } from "inversify-express-utils";
 import { Symbols } from "../../InversifyExpressExample.Models/Symbols";
 import { User } from "../../InversifyExpressExample.Models/User";
 import { UserRepository } from "../../InversifyExpressExample.Repositories/UserRepository";
@@ -32,7 +32,7 @@ export class UserController extends BaseHttpController {
         return this.ok({"Response": `User with name ${user.Name} saved`});
     }
 
-    @httpPost("/updateuser/:Id", Symbols.AuthMiddleware)
+    @httpPut("/updateuser/:Id", Symbols.AuthMiddleware)
     public async UpdateUser(@requestBody() user: User, @requestParam("Id") id: string): Promise<interfaces.IHttpActionResult>{
         await this._userRepository.UpdateUserAsync(id, user);
         return this.ok({"Response": `User with name ${user.Name} updated`});
