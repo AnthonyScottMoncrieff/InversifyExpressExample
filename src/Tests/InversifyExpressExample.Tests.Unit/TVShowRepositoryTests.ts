@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { IMock, It, Mock, Times } from "typemoq";
 import { IAppSettings } from "../../InversifyExpressExample.Domain/Config/Interfaces/IAppSettings";
 import { toPromiseResponse } from "../InversifyExpressExample.Tests.Utilities/PromiseUtilities";
@@ -6,7 +7,6 @@ import { IHttpClient } from "../../InversifyExpressExample.Repositories/Client/I
 import { ITvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/Interfaces/ITvShowMapper";
 import { IRecievedTvShow } from "../../InversifyExpressExample.Repositories/RecievedModels/IRecievedTvShow";
 import { TVShowRepository } from "../../InversifyExpressExample.Repositories/TVShowRepository";
-import "reflect-metadata";
 
 describe('TVShowRepository tests unit', () => {
 

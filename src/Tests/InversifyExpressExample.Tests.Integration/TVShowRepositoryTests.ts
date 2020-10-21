@@ -1,8 +1,8 @@
+import "reflect-metadata";
 import { expect } from "chai";
 import { Symbols } from "../../InversifyExpressExample.Models/Symbols";
 import { ITVShowRepository } from "../../InversifyExpressExample.Repositories/Interfaces/ITVShowRepository";
 import { IOC } from "../../InversifyExpressExample/IocContainer/IOC";
-import "reflect-metadata";
 
 describe('TVShowRepository tests integration', () => {
     it('GetShowByName should successfully get show', async () => {

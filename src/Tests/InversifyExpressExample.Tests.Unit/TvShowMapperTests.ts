@@ -1,7 +1,7 @@
+import "reflect-metadata";
 import { expect } from "chai"
 import { TvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/TvShowMapper"
 import { IRecievedTvShow } from "../../InversifyExpressExample.Repositories/RecievedModels/IRecievedTvShow"
-import "reflect-metadata";
 
 describe('TvShowMapper Tests', () => {
 

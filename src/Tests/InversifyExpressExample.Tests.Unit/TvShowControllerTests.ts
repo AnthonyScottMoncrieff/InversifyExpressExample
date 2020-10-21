@@ -1,9 +1,9 @@
+import "reflect-metadata";
 import { IMock, It, Mock, Times } from "typemoq";
 import { TvShow } from "../../InversifyExpressExample.Models/TvShow";
 import { ITVShowRepository } from "../../InversifyExpressExample.Repositories/Interfaces/ITVShowRepository";
 import { TvShowController } from "../../InversifyExpressExample/Controllers/TvShowController";
 import { toPromiseResponse } from "../InversifyExpressExample.Tests.Utilities/PromiseUtilities";
-import "reflect-metadata";
 
 describe('TvShowController tests', () => {
 

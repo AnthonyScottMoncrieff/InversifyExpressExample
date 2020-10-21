@@ -1,5 +1,5 @@
-import { expect } from "chai";
 import "reflect-metadata";
+import { expect } from "chai";
 import { TemperatureManager } from "../../InversifyExpressExample.Domain/TemperatureManager";
 
 describe('TemperatureManager tests', () => {
