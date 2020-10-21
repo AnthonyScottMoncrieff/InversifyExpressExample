@@ -16,6 +16,14 @@ import { AppSettings } from "../../InversifyExpressExample.Domain/Config/AppSett
 import { ITvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/Interfaces/ITvShowMapper";
 import { TvShowMapper } from "../../InversifyExpressExample.Repositories/Mappers/TvShowMapper";
 import { AuthMiddleware } from "../../InversifyExpressExample.Domain/Auth/AuthMiddleware";
+import { DbConnection } from "../../InversifyExpressExample.Data/DbConnection";
+import { IDbConnection } from "../../InversifyExpressExample.Data/Interfaces/IDbConnection";
+import { DbClient } from "../../InversifyExpressExample.Data/DbClient";
+import { IDbClient } from "../../InversifyExpressExample.Data/Interfaces/IDbClient";
+import { IUserRepository } from "../../InversifyExpressExample.Repositories/Interfaces/IUserRepository";
+import { UserRepository } from "../../InversifyExpressExample.Repositories/UserRepository";
+import { Calendar } from "../../InversifyExpressExample.Domain/Calendar";
+import { ICalendar } from "../../InversifyExpressExample.Domain/Interfaces/ICalendar";
 
 
 export class IOC {
@@ -32,6 +40,10 @@ export class IOC {
         container.bind<ITVShowRepository>(Symbols.TVShowRepository).to(TVShowRepository);
         container.bind<ITvShowMapper>(Symbols.TvShowMapper).to(TvShowMapper);
         container.bind<AuthMiddleware>(Symbols.AuthMiddleware).to(AuthMiddleware);
+        container.bind<IDbConnection>(Symbols.DbConnection).to(DbConnection).inSingletonScope();
+        container.bind<IDbClient>(Symbols.DbClient).to(DbClient);
+        container.bind<IUserRepository>(Symbols.UserRepository).to(UserRepository);
+        container.bind<ICalendar>(Symbols.Calendar).to(Calendar);
 
         this.ConfigureExceptionless(container);
         

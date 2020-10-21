@@ -2,6 +2,7 @@ import { injectable, inject } from "inversify";
 import { interfaces } from "inversify-express-utils";
 import * as express from "express";
 import { Principal } from "./Principal";
+import 'reflect-metadata';
 
 @injectable()
 export class AuthProvider implements interfaces.AuthProvider {
