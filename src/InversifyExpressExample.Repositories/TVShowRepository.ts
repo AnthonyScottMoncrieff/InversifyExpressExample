@@ -6,6 +6,7 @@ import { IHttpClient } from './Client/Interfaces/IHttpClient';
 import { IAppSettings } from "../InversifyExpressExample.Domain/Config/Interfaces/IAppSettings";
 import { TvShow } from "../InversifyExpressExample.Models/TvShow";
 import { ITvShowMapper } from "./Mappers/Interfaces/ITvShowMapper";
+import 'reflect-metadata';
 
 @injectable()
 export class TVShowRepository implements ITVShowRepository{
